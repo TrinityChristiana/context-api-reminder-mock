@@ -3,13 +3,16 @@ import TodoContext from "../contexts/context";
 import { TOGGLE_TODO } from "../contexts/actions";
 const TodoItem = ({ item }) => {
   const { state, dispatch } = useContext(TodoContext);
+
   const handleDoubleClick = () => {
-    dispatch(TOGGLE_TODO, item);
+    dispatch({ type: TOGGLE_TODO, payload: item });
   };
   return (
-    <li className="list-group-item" onDoubleClick={handleDoubleClick}>
-      {item.name} <i className="bi bi-trash-fill"></i>
-      <i className="bi bi-pencil-square"></i>
+    <li className="todo-item list-group-item">
+      <span onClick={handleDoubleClick} className="todo-item-text">
+        {item.completed ? <s>{item.name}</s> : <>{item.name}</>}
+      </span>{" "}
+      <i className="fas fa-trash"></i> <i className="fas fa-edit"></i>
     </li>
   );
 };
