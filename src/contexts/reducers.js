@@ -27,7 +27,7 @@ const updateTodo = (state, action) => {
   return state;
 };
 
-export default function (state, action) {
+const todoReducer = (state, action) => {
   switch (action.type) {
     case TOGGLE_TODO:
       return toggleTodo(state, action);
@@ -40,4 +40,6 @@ export default function (state, action) {
     default:
       return state;
   }
-}
+};
+
+export default todoReducer;
