@@ -1,0 +1,27 @@
+.todo {
+  &-list {
+    &-item {
+      background-color: $black;
+    }
+  }
+
+  &-form {
+    margin: 0 0 60px 0;
+
+    input,
+    input:focus {
+      background-color: $black;
+      color: $white;
+      border: none !important;
+    }
+
+    &-toggle {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 45px;
+    }
+  }
+}

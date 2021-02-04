@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
 import TodoContext from "../contexts/context";
 import { ADD_TODO, UPDATE_TODO } from "../contexts/actions";
+import FormToggleButton from "./FormToggleButton";
 
 const TodoForm = ({ item = {}, setIsUpdating }) => {
   const [newTodo, setTodo] = useState("");
+  const [showForm, setShowForm] = useState(false);
   const { state, dispatch } = useContext(TodoContext);
 
   const addTodo = () => {
@@ -28,20 +30,28 @@ const TodoForm = ({ item = {}, setIsUpdating }) => {
     setTodo("");
   };
   return (
-    <div className="input-group input-group-lg mb-3">
-      <input
-        type="text"
-        className="form-control"
-        placeholder="New Todo"
-        aria-label="New Todo"
-        value={newTodo}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") {
-            addTodo();
-          }
-        }}
-        onChange={(e) => setTodo(e.target.value)}
-      />
+    <div
+      className={`${
+        item.id ? "todo-list-item-form" : "todo-form"
+      } input-group input-group-lg`}
+    >
+      {showForm && (
+        <input
+          type="text"
+          className="form-control"
+          placeholder="New Todo"
+          aria-label="New Todo"
+          value={newTodo}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              addTodo();
+            }
+          }}
+          onChange={(e) => setTodo(e.target.value)}
+        />
+      )}
+
+      {!item.id && !showForm && <FormToggleButton setShowForm={setShowForm} />}
     </div>
   );
 };

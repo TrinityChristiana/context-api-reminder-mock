@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import TodoContext from "../contexts/context";
 import TodoItem from "./TodoItem";
-import TodoForm from "./TodoForm";
-const TodoList = ({}) => {
+const TodoList = () => {
   const { state } = useContext(TodoContext);
   return (
-    <div className="todo-list ">
-      <TodoForm />
-      <ul className="list-group">
+    <div className="todos">
+      
+      <h1>Today</h1>
+
+      <ul className="todo-list list-group">
         {state.todos.map((item, i) => (
           <TodoItem key={i} item={item} />
         ))}

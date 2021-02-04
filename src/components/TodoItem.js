@@ -17,19 +17,24 @@ const TodoItem = ({ item }) => {
     setIsUpdating(!isUpdating);
   };
   return (
-    <li className="todo-item list-group-item">
+    <li className="todo-list-item list-group-item">
       {isUpdating ? (
         <>
-          {" "}
-          <TodoForm item={item} setIsUpdating={setIsUpdating}/>
+          <TodoForm item={item} setIsUpdating={setIsUpdating} />
         </>
       ) : (
         <>
-          <span onClick={handleDoubleClick} className="todo-item-text">
+          <span onClick={handleDoubleClick} className="todo-list-item-text">
             {item.completed ? <s>{item.name}</s> : <>{item.name}</>}
           </span>
-          <i className="fas fa-trash" onClick={handleDelete}></i>
-          <i className="fas fa-edit" onClick={toggleEditing}></i>
+          <i
+            className="todo-list-item-delete fas fa-trash"
+            onClick={handleDelete}
+          ></i>
+          <i
+            className="todo-list-item-edit fas fa-edit"
+            onClick={toggleEditing}
+          ></i>
         </>
       )}
     </li>
