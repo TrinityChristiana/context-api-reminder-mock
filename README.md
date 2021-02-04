@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b8b99f97-60f6-4e91-aad5-32f9870133f0/deploy-status)](https://app.netlify.com/sites/trins-todo/deploys)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
