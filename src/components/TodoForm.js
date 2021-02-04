@@ -1,12 +1,19 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TodoContext from "../contexts/context";
-import { ADD_TODO, UPDATE_TODO } from "../contexts/actions";
+import { ADD_TODO, UPDATE_TODO } from "../contexts/constants";
 import FormToggleButton from "./FormToggleButton";
 
 const TodoForm = ({ item = {}, setIsUpdating }) => {
   const [newTodo, setTodo] = useState("");
   const [showForm, setShowForm] = useState(false);
   const { state, dispatch } = useContext(TodoContext);
+
+  useEffect(() => {
+    if (item.id) {
+      setShowForm(true);
+      setTodo(item.name);
+    }
+  }, [item]);
 
   const addTodo = () => {
     if (item.id) {

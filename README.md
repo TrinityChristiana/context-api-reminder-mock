@@ -24,6 +24,12 @@ This is a project I'm working on to get comfortabe with React's Context API. So 
 
 ## Coming Soon...
 - More Styling to look like an IOS device
+    - Status Bar
+    - Title
+    - items
+    - Add Todo Button
+    - Todo Form
+    
 - ScreenShots
 - Adding Multiple Todo's
 

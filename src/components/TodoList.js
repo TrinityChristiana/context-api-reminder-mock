@@ -5,9 +5,7 @@ const TodoList = () => {
   const { state } = useContext(TodoContext);
   return (
     <div className="todos">
-      
-      <h1>Today</h1>
-
+      <h1>{state.todoTitle}</h1>
       <ul className="todo-list list-group">
         {state.todos.map((item, i) => (
           <TodoItem key={i} item={item} />
