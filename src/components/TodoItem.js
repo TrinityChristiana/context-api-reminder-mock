@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import TodoContext from "../contexts/context";
 import TodoForm from "../components/TodoForm";
-import { TOGGLE_TODO, DELETE_TODO } from "../contexts/actions";
+import { TOGGLE_TODO, DELETE_TODO } from "../contexts/constants";
 
 const TodoItem = ({ item }) => {
   const { dispatch } = useContext(TodoContext);

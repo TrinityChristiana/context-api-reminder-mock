@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import TodoContext from "../contexts/context";
-import { ADD_TODO, UPDATE_TODO } from "../contexts/actions";
+import { ADD_TODO, UPDATE_TODO } from "../contexts/constants";
 import FormToggleButton from "./FormToggleButton";
 
 const TodoForm = ({ item = {}, setIsUpdating }) => {
@@ -14,6 +14,7 @@ const TodoForm = ({ item = {}, setIsUpdating }) => {
       setTodo(item.name);
     }
   }, [item]);
+
   const addTodo = () => {
     if (item.id) {
       const newTodoObject = {
