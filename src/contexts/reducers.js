@@ -24,7 +24,11 @@ const deleteTodo = (state, action) => {
 };
 
 const updateTodo = (state, action) => {
-  return state;
+  const todos = [...state.todos];
+  const currentTodo = action.payload;
+  const currentIndex = todos.findIndex((item) => item.id === currentTodo.id);
+  todos[currentIndex] = currentTodo;
+  return { ...state, todos };
 };
 
 const todoReducer = (state, action) => {
