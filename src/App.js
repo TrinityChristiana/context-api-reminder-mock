@@ -3,6 +3,7 @@ import TodoContext from "./contexts/context";
 import reducer from "./contexts/reducers";
 import TodoList from "./components/TodoList";
 import StatusBar from "./components/StatusBar";
+import TodoHeader from "./components/TodoHeader";
 import TodoForm from "./components/TodoForm";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <div className="App">
       <StatusBar />
       <TodoContext.Provider value={{ state, dispatch }}>
+        <TodoHeader />
         <TodoList />
         <TodoForm />
       </TodoContext.Provider>
