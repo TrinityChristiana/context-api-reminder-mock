@@ -16,7 +16,11 @@ const addTodo = (state, action) => {
 };
 
 const deleteTodo = (state, action) => {
-  return state;
+  const todos = [...state.todos];
+  const currentTodo = action.payload;
+  const currentIndex = todos.findIndex((item) => item.id === currentTodo.id);
+  todos.splice(currentIndex, 1);
+  return { ...state, todos };
 };
 
 const updateTodo = (state, action) => {
