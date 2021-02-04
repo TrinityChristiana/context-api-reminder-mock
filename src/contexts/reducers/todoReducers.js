@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 const todoReducers = {
   toggleTodo: (state, action) => {
     const currentTodo = action.payload;
@@ -9,7 +11,12 @@ const todoReducers = {
     return { ...state, todos };
   },
   addTodo: (state, action) => {
-    const newTodos = [...state.todos, action.payload];
+    const newTodoObj = {
+      completed: false,
+      name: action.payload,
+      id: uuidv4(),
+    };
+    const newTodos = [...state.todos, newTodoObj];
     return { ...state, todos: newTodos };
   },
   deleteTodo: (state, action) => {

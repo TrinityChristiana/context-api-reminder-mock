@@ -7,7 +7,7 @@ const TodoItem = ({ item }) => {
   const { dispatch } = useContext(TodoContext);
   const [isUpdating, setIsUpdating] = useState(false);
 
-  const handleDoubleClick = () => {
+  const handleToggle = () => {
     dispatch({ type: TOGGLE_TODO, payload: item });
   };
   const handleDelete = () => {
@@ -24,7 +24,7 @@ const TodoItem = ({ item }) => {
         </>
       ) : (
         <>
-          <span onClick={handleDoubleClick} className="todo-list-item-text">
+          <span onClick={handleToggle} className="todo-list-item-text">
             {item.completed ? <s>{item.name}</s> : <>{item.name}</>}
           </span>
           <i

@@ -17,22 +17,16 @@ const TodoForm = ({ item = {}, setIsUpdating }) => {
 
   const addTodo = () => {
     if (item.id) {
-      const newTodoObject = {
-        ...item,
-        name: newTodo,
-      };
-      dispatch({ type: UPDATE_TODO, payload: newTodoObject });
+      dispatch({
+        type: UPDATE_TODO,
+        payload: {
+          ...item,
+          name: newTodo,
+        },
+      });
       setIsUpdating(false);
     } else {
-      const lastId = state.todos.map((t) => t.id).sort()[
-        state.todos.length - 1
-      ];
-      const newTodoObject = {
-        name: newTodo,
-        completed: false,
-        id: lastId + 1,
-      };
-      dispatch({ type: ADD_TODO, payload: newTodoObject });
+      dispatch({ type: ADD_TODO, payload: newTodo });
     }
     setTodo("");
   };
