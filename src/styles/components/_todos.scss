@@ -2,17 +2,39 @@
   &-list {
     &-item {
       background-color: $black;
+      display: flex;
+
+      &-checked {
+        display: flex;
+        justify-content: center;
+        font-size: 21px;
+        width: 11%;
+      }
+
+      &-text {
+        font-size: 17px;
+        width: 89%;
+        overflow-wrap: break-word;
+        border-bottom: 1px solid #2c2b30;
+        padding-bottom: 5px;
+      }
     }
   }
 
   &-form {
-    margin: 0 0 60px 0;
+    font-size: 17px;
 
-    input,
-    input:focus {
+    &-new {
+      margin: 0 0 60px 0;
+    }
+
+    textarea,
+    textarea:focus {
       background-color: $black;
       color: $white;
       border: none !important;
+      resize: none;
+      outline: none;
     }
 
     &-toggle {
